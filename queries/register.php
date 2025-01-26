@@ -358,7 +358,7 @@ class Register extends Api {
         $fileExt = explode('.', $fileName);
         $fileActualExt = strtolower(end($fileExt));
         $fileNameNew = uniqid('', true) . "." . $fileActualExt;
-        $targetDirectory = 'C:/xampp/htdocs/GreekMyth/img/admin/' . $fileNameNew; 
+        $targetDirectory = '/xampp/htdocs/cmsAPI/src/admins/' . $fileNameNew; 
         
         $allowed = array("jpeg", "png", "jpg");
     

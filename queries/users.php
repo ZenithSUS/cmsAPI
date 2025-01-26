@@ -175,7 +175,7 @@ class Users extends Api {
         
         $stmt->bind_param('sss', $username, $email, $id);
         $stmt->execute();
-            
+        
         if($stmt->affected_rows > 0 || $this->changeImage($id, $image) !== false){
             $stmt->close();
             return $this->editedResource();
@@ -532,7 +532,7 @@ class Users extends Api {
         $fileExt = explode('.', $fileName);
         $fileActualExt = strtolower(end($fileExt));
         $fileNameNew = uniqid('', true) . "." . $fileActualExt;
-        $targetDirectory = 'C:/xampp/htdocs/GreekMyth/img/admin/' . $fileNameNew; 
+        $targetDirectory = $this->imageConfig['admins'] . $fileNameNew; 
         
         $allowed = array("jpeg", "png", "jpg");
     
@@ -588,7 +588,7 @@ class Users extends Api {
 
         if($result->num_rows > 0){
             if($image !== null){
-                unlink($this->imagePath['admins'] . $image);
+                unlink($this->imageConfig['admins'] . $image);
             } 
         }
     }

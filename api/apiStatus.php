@@ -3,11 +3,16 @@ require_once('../config.php');
 class Api extends Database {
     protected $conn;
     protected $imagePath = [
-        "default_users" => "C:/xampp/htdocs/GreekMyth/img/default.jpg",
-        "default_gods" => "C:/xampp/htdocs/GreekMyth/img/hero.png",
-        "admins" => "C:/xampp/htdocs/GreekMyth/img/admin/", 
-        "gods" => "C:/xampp/htdocs/GreekMyth/img/gods/",
-        "users" => "C:/xampp/htdocs/GreekMyth/img/u/"
+        "default_users" => "/cmsAPI/src/default/default.jpg",
+        "default_gods" => "/cmsAPI/src/default/hero.png",
+        "admins" => "/cmsAPI/src/admins/", 
+        "gods" => "/cmsAPI/src/groups/",
+        "users" => "/cmsAPI/src/users/"
+    ];
+
+    protected $imageConfig = [
+        "admins" => "C:/xampp/htdocs/cmsAPI/src/admins/",
+        "users" => "C:/xampp/htdocs/cmsAPI/src/users/"
     ];
 
     protected function queryFailed(string $type = null, array $errors = null) : string {
